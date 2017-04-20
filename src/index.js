@@ -5,16 +5,15 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import store, { history } from './core/store';
 import Home from "./components/zoey";
-import About from "./components/zoey";
+import About from "./components/detail";
 import ReactDOM from 'react-dom';
-import './index.css';
-
+import 'bulma/css/bulma.css';
 const BasicRouter = () => (
   <Router>
     <div>
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">xx</Link></li>
+        <li><Link to="/about">About</Link></li>
       </ul>
 
       <hr/>
