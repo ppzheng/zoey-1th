@@ -1,13 +1,15 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {Route} from 'react-router';
-import {Provider} from 'react-redux';
-import {ConnectedRouter} from 'react-router-redux';
+import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
+import { Route } from 'react-router';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux';
 import store, {history} from './core/store';
+
 import Hello from "./components/zoey";
 import Hi from "./components/detail";
 import TodoComponent from "./components/todolist";
-import ReactDOM from 'react-dom';
+
 import 'bulma/css/bulma.css';
 
 ReactDOM.render(

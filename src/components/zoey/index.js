@@ -1,8 +1,7 @@
-
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import { actions } from '../../core/actions';
+import {actions} from '../../core/actions';
 
 // const About = () => (
 //   <div>
@@ -22,7 +21,7 @@ class Hello extends React.Component {
           <small>You are running this application in <b>{process.env.NODE_ENV}</b> mode.</small>
         </div>
         <h1>You found me ~ { name }</h1>
-        <input type="text" onkeypress={addName}/>
+        <input type="text" onKeyPress={ addName }/>
       </div>
     )
   }
@@ -34,7 +33,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addName: bindActionCreators(actions.addName, dispatch)
+    // addName: bindActionCreators(actions.addName, dispatch)
+    addName: event => {
+      if (event.key === 'Enter') {
+       dispatch(actions.addName(event));
+      }
+    }
   }
 };
 

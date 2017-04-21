@@ -22,9 +22,6 @@ const removeTask = (index) => {
 export const HELLO_ADD_NAME = "HELLO_ADD_NAME";
 
 const addName = (event) => {
-  if (event.key === 'Enter' ){
-    console.log(event.target.value)
-  }
   return { type: HELLO_ADD_NAME,name:event.target.value }
 };
 
