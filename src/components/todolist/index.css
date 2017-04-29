@@ -1,0 +1,42 @@
+
+body {
+    background-color: #F5F5F5;
+    height: 100%;
+    min-height: 40rem;
+}
+
+#root {
+    padding: 4rem;
+}
+
+h1.title {
+    width: 100%;
+    font-size: 6.5rem;
+    font-weight: 100;
+    text-align: center;
+    color: rgba(175, 47, 47, 0.15);
+}
+
+.todo-container {
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #FFFFFF;
+}
+
+.new-todo input {
+    padding: 16px 16px 16px 60px;
+    border: none;
+    background: rgba(0, 0, 0, 0.003);
+    box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+    font-size: 2rem;
+    width: 100%;
+    color: #4D4D4D;
+    border: 0;
+}
+
+/* 改变 placeholder 的字体和颜色 */
+.new-todo input::-webkit-input-placeholder {
+    font-style: italic;
+    font-weight: 300;
+    color: #E6E6E6;
+}
