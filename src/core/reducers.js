@@ -4,21 +4,20 @@ import {ADD_TASK, HELLO_ADD_NAME, REMOVE_TASK} from './actions'
 // TodoComponent Reducer
 // --------------------------------------------------------------------
 
-const todos = (state = initialState, action) => {
-  console.log(state, action);
+const todosReducer = (state = defaultTodosState, action) => {
+  // console.log(state, action);
   switch (action.type) {
     case ADD_TASK :
-      return [
+      return {
         ...state,
-        {text: action.text}
-      ];
+        todos: [...state.todos , action.text]
+  };
     case REMOVE_TASK :
-      return [
-        ...state.slice(0, action.index),
-        ...state.slice(action.index + 1),
-      ];
+      let todos = [...state.todos];
+      todos.splice(action.index,1);
+      return { ...state, todos };
     default:
-      return [...state]
+      return state
   }
 };
 
@@ -26,13 +25,14 @@ const todos = (state = initialState, action) => {
 // Default Reducer
 // --------------------------------------------------------------------
 
-const theDefaultReducer = (state = initialState, action) => {
+const theDefaultReducer = (state = defaultInitialState, action) => {
   console.log('theDefaultReducer', state, action);
   switch (action.type) {
     case HELLO_ADD_NAME:
       return {
         ...state, name: action.name
       };
+
     default:
       return state;
   }
@@ -42,9 +42,15 @@ const theDefaultReducer = (state = initialState, action) => {
 // Initial
 // --------------------------------------------------------------------
 
-const initialState = {
-  todos :['example1' , 'example2'],
-  name  : 'Zoe'
+const defaultInitialState = {
+  name: 'Zoe'
 };
 
-export default {default:theDefaultReducer};
+const defaultTodosState = {
+  todos: ['example1', 'example2'],
+};
+
+export default {
+  default: theDefaultReducer,
+  todos  : todosReducer
+};

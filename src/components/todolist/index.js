@@ -16,7 +16,7 @@ import {actions} from '../../core/actions'
 
 class TodoComponent extends React.Component {
   render() {
-    let {todos, addTask} = this.props;
+    let {todos, addTask ,removeTask} = this.props;
     return (
       <div>
         <div className="columns">
@@ -33,7 +33,7 @@ class TodoComponent extends React.Component {
                   <div className="todo-item" key={index}>
                     <input type="checkbox" className="toggle"/>
                     <span className="todo-name">{todo}</span>
-                    <button className="delete"/>
+                    <button className="delete" onclick = {()=> removeTask(index)}/>
                   </div>)
               })}
             </div>
@@ -53,8 +53,11 @@ const mapDispatchToProps = dispatch => {
     addTask: event => {
       if (event.key === 'Enter') {
         dispatch(actions.addTask(event));
+        //新增后数据清空
+        event.target.value = '';
       }
-    }
+    },
+    removeTask: index => dispatch(actions.removeTask(index))
   }
 };
 
